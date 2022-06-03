@@ -1,0 +1,30 @@
+<mat-toolbar>
+    <span>Agenda de Personas</span>
+    <div class="espacio"></div>
+    <button mat-raised-button color="primary" (click)="addNewPerson()">Agregar</button>
+  </mat-toolbar>
+  
+  <table *ngIf="people" mat-table [dataSource]="people" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let item"> {{item.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef> Apellido </th>
+      <td mat-cell *matCellDef="let item"> {{item.lastName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="identification">
+      <th mat-header-cell *matHeaderCellDef> Cédula </th>
+      <td mat-cell *matCellDef="let item"> {{item.identification}} </td>
+    </ng-container>
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef> Genero </th>
+      <td mat-cell *matCellDef="let item"> {{item.gender}} </td>
+    </ng-container>
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef> Edad </th>
+      <td mat-cell *matCellDef="let item"> {{item.age}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="headers"></tr>
+    <tr class="cursor-pointer" mat-row *matRowDef="let row; columns: headers;"></tr>
+  </table>
